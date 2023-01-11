@@ -1,0 +1,159 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+    
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 67px;
+    left: 0px;
+    top: 0px;
+    background: #020166;
+    color: #ffffff;
+}
+    
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+   
+.child {
+    display: flex;
+}
+
+#logo-img{
+    margin-left: 110px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+    
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height : 67px;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+    background-color: #94D97E;
+}
+    
+#Favorites  {
+    width: 66px;
+    height: 19px;
+    margin-right: 106px;
+    margin-left: 24px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color:#F7F7F9;
+}
+.search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+}
+    
+.search-box{
+    width: 341px;
+    height: 36px;
+    left: 428px;
+    top: 124px;
+
+    background: #F7F7F9;
+    border: 1px solid rgba(2, 1, 102, 0.5);
+    border-radius: 9px;
+}
+
+.search-button {
+    margin-left: 5px;
+    width: 87px;
+    height: 36px;
+    left: 775px;
+    top: 123px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #F7F7F9;
+    background: #373299;
+    border-radius: 9px;
+    border-color: #373299;
+}
+
+#main-all-pokemons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 26.7px;
+    margin-left: 122px;
+    margin-right: 108px;
+    margin-top: 174px;
+    margin-bottom: 194px;
+}
+
+.one-pokemon-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 240.56px;
+    height: 255px;
+    
+    background: #F7F7F9;
+    border-radius: 9px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+img{
+    display: flex;
+    width: 164.02px;
+    height: 161px;
+    margin-left: 38.27px;
+    margin-right: 38.27px;
+    margin-top: 38px;
+    margin-bottom: 56px;
+}
+
+.type-of-id{
+    display: flex;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    
+    color: #373299;
+    
+}
+.type-of-name{
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+
+    color: #373299;
+
+}
