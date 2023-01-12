@@ -67,14 +67,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 57px;
+    margin-bottom: 36px;
 }
     
 .search-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 341px;
     height: 36px;
-    left: 428px;
-    top: 124px;
 
     background: #F7F7F9;
     border: 1px solid rgba(2, 1, 102, 0.5);
@@ -108,15 +110,15 @@
     gap: 26.7px;
     margin-left: 122px;
     margin-right: 108px;
-    margin-top: 174px;
-    margin-bottom: 194px;
+    margin-top: 26px;
+    margin-bottom: 80px;
 }
 
 .one-pokemon-div{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 240.56px;
+    width: 267.29px;
     height: 255px;
     
     background: #F7F7F9;
@@ -130,8 +132,8 @@ img{
     height: 161px;
     margin-left: 38.27px;
     margin-right: 38.27px;
-    margin-top: 38px;
-    margin-bottom: 56px;
+    margin-top: 10px;
+    margin-bottom: 11px;
 }
 
 .type-of-id{
@@ -155,5 +157,61 @@ img{
     line-height: 26px;
 
     color: #373299;
-
 }
+#load-more{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+.button-load-more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 36px;
+    border: 1px solid #373299;
+    border-radius: 9px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #373299;
+    background-color: #ffffff;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  .modal-content {
+    background-color: #ff0000;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid rgb(10, 6, 255);
+    width: 80%; 
+  }
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
