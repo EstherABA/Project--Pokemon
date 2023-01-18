@@ -7,8 +7,7 @@ let heart_unlike_button = "./assets/VectorOnClick.png"
 
 
 
-//adding pokemons card with data-main screen
-// let is = 0
+//adding pokemons card to main screen
 export function addPokemonCard() {
 
     for (let i= 0 ; i<12 ; i++) {
@@ -52,11 +51,8 @@ export function addPokemonCard() {
         mainDiv.appendChild(smallContainer);
     }
 };
-
 addPokemonCard()
-// export function addPokemonCard()
 
-// let buttonOfLoad = document.getElementByIdbutton-load-more
 
 //creating div with data - for modal box
 function addPokemonModal() {
@@ -264,16 +260,19 @@ addPokemonModal()
 
 
 //add event listener to display the modal
-for (let i=1; i<13;i++) {
-        let pokemonCard = document.getElementById(`${i}`);
-        pokemonCard.addEventListener("click", function() {
-            document.getElementById(`myModal-${i}`).style.display = "block";
-        });
+function displayModal() {
+    for (let i=1; i<13;i++) {
+            let pokemonCard = document.getElementById(`${i}`);
+            pokemonCard.addEventListener("click", function() {
+                document.getElementById(`myModal-${i}`).style.display = "block";
+            });
 
-        let span = document.getElementById(`span-${i}`);
-        // When the user clicks on <span> (x), close the modal
-        span.addEventListener("click", function() {
-            document.getElementById(`myModal-${i}`).style.display = "none";
-        });
+            let span = document.getElementById(`span-${i}`);
+            // When the user clicks on <span> (x), close the modal
+            span.addEventListener("click", function() {
+                document.getElementById(`myModal-${i}`).style.display = "none";
+            });
+    }
 };
+displayModal()
 
