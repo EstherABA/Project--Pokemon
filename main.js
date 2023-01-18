@@ -1,198 +1,266 @@
 import data from "./pokedex.json" assert { type:"json" };
 
+let favoriteList = [];
+localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+let heart_like_button = "./assets/Vector.png"
+let heart_unlike_button = "./assets/VectorOnClick.png"
+
+
+
 //adding pokemons card with data-main screen
-for (let i=0; i<12; i++) {
-    //creating small div for each pokemon
-    const smallContainer = document.createElement("div");
-    smallContainer.className = "one-pokemon-div";
-    smallContainer.setAttribute("id",data[i]['id']);
+// let is = 0
+export function addPokemonCard() {
 
-    //adding id -> small div//
-    const pokemonId = document.createElement("div");
-    for (let y=0 ; y<1 ; y++){
-        const lengthOfId = `${data[i]['id']}`
-        if (lengthOfId.length < 2){
-            pokemonId.innerHTML = `#00${data[i]['id']}`;
-        }
-        else if (lengthOfId.length > 1 && lengthOfId.length < 3 ){
-            pokemonId.innerHTML = `#0${data[i]['id']}`;
-        }
-        else {
-            pokemonId.innerHTML = `#${data[i]['id']}`;
-        }
-        y++
-    }; 
-    // pokemonId.innerHTML = `#00${data[i]['id']}`;
-    smallContainer.appendChild(pokemonId);
-    pokemonId.className = "type-of-id";
-    
-    //adding img -> small div//
-    const pokemonImg = document.createElement("img");
-    pokemonImg.src = `${data[i]['image']['hires']}`;
-    smallContainer.appendChild(pokemonImg);
-    
-    //adding name -> small div//
-    const pokemonName = document.createElement("div");
-    pokemonName.innerHTML = `${data[i]['name']['english']}`;
-    smallContainer.appendChild(pokemonName);
-    pokemonName.className = "type-of-name";
+    for (let i= 0 ; i<12 ; i++) {
+        //creating small div for each pokemon
+        const smallContainer = document.createElement("div");
+        smallContainer.className = "one-pokemon-div";
+        smallContainer.setAttribute("id",data[i]['id']);
 
-    ///adding small div -> main div///
-    const mainDiv = document.getElementById("main-all-pokemons");
-    mainDiv.appendChild(smallContainer);
-}
+        //adding id -> small div//
+        const pokemonId = document.createElement("div");
+        for (let y=0 ; y<1 ; y++){
+            const lengthOfId = `${data[i]['id']}`
+            if (lengthOfId.length < 2){
+                pokemonId.innerHTML = `#00${data[i]['id']}`;
+            }
+            else if (lengthOfId.length > 1 && lengthOfId.length < 3 ){
+                pokemonId.innerHTML = `#0${data[i]['id']}`;
+            }
+            else {
+                pokemonId.innerHTML = `#${data[i]['id']}`;
+            }
+            y++
+        }; 
+        // pokemonId.innerHTML = `#00${data[i]['id']}`;
+        smallContainer.appendChild(pokemonId);
+        pokemonId.className = "type-of-id";
+        
+        //adding img -> small div//
+        const pokemonImg = document.createElement("img");
+        pokemonImg.src = `${data[i]['image']['hires']}`;
+        smallContainer.appendChild(pokemonImg);
+        
+        //adding name -> small div//
+        const pokemonName = document.createElement("div");
+        pokemonName.innerHTML = `${data[i]['name']['english']}`;
+        smallContainer.appendChild(pokemonName);
+        pokemonName.className = "type-of-name";
+
+        ///adding small div -> main div///
+        const mainDiv = document.getElementById("main-all-pokemons");
+        mainDiv.appendChild(smallContainer);
+    }
+};
+
+addPokemonCard()
+// export function addPokemonCard()
+
+// let buttonOfLoad = document.getElementByIdbutton-load-more
 
 //creating div with data - for modal box
-for (let i=1; i<13; i++) {
-            
-    const BigDivForAllModals = document.getElementById("all-modal");
+function addPokemonModal() {
+    for (let i=1; i<13; i++) {
+                
+        const BigDivForAllModals = document.getElementById("all-modal");
 
-    // create The Modal
-    const modal= document.createElement("div");
-    modal.setAttribute("id",`myModal-${i}`);
-    modal.className = "modal";
-    
-    // create Modal content 
-    const modalContent = document.createElement("div");
-    modalContent.className = "modal-content";
-
-    // create span
-    const modalSpan = document.createElement("span");
-    modalSpan.setAttribute("id",`span-${i}`);
-    modalSpan.className = "close";
-    modalSpan.innerHTML = "X";
-    modalContent.appendChild(modalSpan);
-
-    //create items for content
-    //div for id
-    const divForId = document.createElement("div");
-    divForId.setAttribute("id",`divForId-${i}`);
-    divForId.className = "div-for-id-modal";
-    for (let y=0 ; y<1 ; y++){
-        const lenghtOF = `${data[i-1]['id']}`
-        if (lenghtOF.length < 2){
-            divForId.innerHTML = `#00${data[i-1]['id']}`;
-        }
-        else if (lenghtOF.length > 1 && lenghtOF.length < 3 ){
-            divForId.innerHTML = `#0${data[i-1]['id']}`;
-        }
-        else {
-            divForId.innerHTML = `#${data[i-1]['id']}`;
-        }
-        y++
-    };
-    
-    //div for img
-    const divForImg = document.createElement("img");
-    divForImg.src = `${data[i-1]['image']['hires']}`;
-    
-    //div for name
-    const divForName = document.createElement("div");
-    divForName.setAttribute("id",`divForName-${i}`);
-    divForName.className = "div-for-Name-modal";
-    divForName.innerHTML = `${data[i-1]['name']['english']}`;
-    
-    //div for type
-    const divForType = document.createElement("div");
-    divForType.setAttribute("id",`divForType-${i}`);
-    divForType.className = "div-for-Type-modal";
-            
-    for (let j=0; j<data[i-1]['type'].length; j++){
+        // create The Modal
+        const modal= document.createElement("div");
+        modal.setAttribute("id",`myModal-${i}`);
+        modal.className = "modal";
         
-        const buttonForType = document.createElement("button");
-        buttonForType.setAttribute("id",`buttonType${j}-forPokemon${i}`);
-        buttonForType.className = `button-for-Type-${data[i-1]['type'][j]}`;
-        buttonForType.innerHTML = `${data[i-1]['type'][j]}`;
-        divForType.appendChild(buttonForType);
+        // create Modal content 
+        const modalContent = document.createElement("div");
+        modalContent.className = "modal-content";
+
+        // create span
+        const modalSpan = document.createElement("span");
+        modalSpan.setAttribute("id",`span-${i}`);
+        modalSpan.className = "close";
+        modalSpan.innerHTML = "X";
+        modalContent.appendChild(modalSpan);
+
+        //create items for content
+        //div for id
+        const divForId = document.createElement("div");
+        divForId.setAttribute("id",`divForId-${i}`);
+        divForId.className = "div-for-id-modal";
+        for (let y=0 ; y<1 ; y++){
+            const lenghtOF = `${data[i-1]['id']}`
+            if (lenghtOF.length < 2){
+                divForId.innerHTML = `#00${data[i-1]['id']}`;
+            }
+            else if (lenghtOF.length > 1 && lenghtOF.length < 3 ){
+                divForId.innerHTML = `#0${data[i-1]['id']}`;
+            }
+            else {
+                divForId.innerHTML = `#${data[i-1]['id']}`;
+            }
+            y++
+        };
         
-    };
-    
+        //div for img
+        const divForImg = document.createElement("img");
+        divForImg.src = `${data[i-1]['image']['hires']}`;
+        
+        //div for name
+        const divForName = document.createElement("div");
+        divForName.setAttribute("id",`divForName-${i}`);
+        divForName.className = "div-for-Name-modal";
+        divForName.innerHTML = `${data[i-1]['name']['english']}`;
+        
+        //div for type
+        const divForType = document.createElement("div");
+        divForType.setAttribute("id",`divForType-${i}`);
+        divForType.className = "div-for-Type-modal";
+
+        let typeColors = {
+            normal:   '#A8A77A',
+            fire:   '#EE8130',
+            water:   '#6390F0',
+            electric:   '#F7D02C',
+            grass:   '#7AC74C',
+            ice:   '#96D9D6',
+            fighting:   '#C22E28',
+            poison:   '#A33EA1',
+            ground:   '#E2BF65',
+            flying:   '#A98FF3',
+            psychic:   '#F95587',
+            bug:   '#A6B91A',
+            rock:   '#B6A136',
+            ghost:   '#735797',
+            dragon:   '#6F35FC',
+            dark:   '#705746',
+            steel:   '#B7B7CE',
+            fairy:   '#D685AD',
+
+        };
             
-    //big div for description
-    const divForAllDescription = document.createElement("div");
-    divForAllDescription.setAttribute("id",`divForAllDescription-${i}`);
-    divForAllDescription.className = "div-for-All-Description";
-    
-    //div for description Title
-    const divForDescriptionTitle = document.createElement("div");
-    divForDescriptionTitle.setAttribute("id",`divForDescriptionTitle-${i}`);
-    divForDescriptionTitle.className = "div-for-Description-title-modal";
-    divForDescriptionTitle.innerHTML = "Description";
-    
-    //div for description content
-    const divForDescription = document.createElement("div");
-    divForDescription.setAttribute("id",`divForDescription-${i}`);
-    divForDescription.className = "div-for-Description-modal";
-    divForDescription.innerHTML = `${data[i-1]['description']}`;
-    
-    divForAllDescription.append(divForDescriptionTitle,divForDescription)
-    
-    //div for All stats content
-    const divForAllStats = document.createElement("div");
-    divForAllStats.setAttribute("id",`divForAllStats-${i}`);
-    divForAllStats.className = "div-for-All-Stats"; //class
-    divForAllStats.innerHTML = "";
+        for (let j=0; j<data[i-1]['type'].length; j++){
+            let color = typeColors[data[i-1]["type"][j].toLowerCase()];
+            
+            let buttonForType = document.createElement("button");
+            buttonForType.setAttribute("id",`buttonType${j}-forPokemon${i}`);
+            buttonForType.className = `button-for-Type`;
 
-    //div for stats Title
-    const divForStatsTitle = document.createElement("div");
-    divForStatsTitle.setAttribute("id",`divForStatsTitle-${i}`);
-    divForStatsTitle.className = "div-for-statsTitle-modal"; //class
-    divForStatsTitle.innerHTML = "Stats";
-    
-    //div for stats details//
-    //div fo HP-side
-    const divForStatsHpAttDef = document.createElement("div");
-    divForStatsHpAttDef.setAttribute("id",`statsHpAttDef-forPokemon${i}`);
-    divForStatsHpAttDef.className = `div-for-stats-Hp`; //class
-    divForStatsHpAttDef.innerHTML = 'HP:' +' '+ data[i-1]['base']['HP'] +'<br>'
-    + 'Attack:' +' '+ data[i-1]['base']['Attack'] + '<br>' 
-    + 'Defense:' +' '+ data[i-1]['base']['Defense'];
-    
-    //div for Special-side
-    const divForStatsSpeicalSpeed = document.createElement("div");
-    divForStatsSpeicalSpeed.setAttribute("id",`statsSpeicalSpeed-forPokemon${i}`);
-    divForStatsSpeicalSpeed.className = `div-for-stats-special`; //class
-    divForStatsSpeicalSpeed.innerHTML = 'Sp. Attack:' + ' ' + data[i-1]['base']['Sp. Attack']+'<br>'
-    + 'Sp. Defense:' +'  '+ data[i-1]['base']['Sp. Defense'] + '<br>' 
-    + 'Speed:' +'  '+ data[i-1]['base']['Speed'];
+            buttonForType.style.backgroundColor = color;
+            buttonForType.innerHTML = `${data[i-1]['type'][j]}`;
+            divForType.appendChild(buttonForType);
+            
+        };
+        
+        //big div for description
+        const divForAllDescription = document.createElement("div");
+        divForAllDescription.setAttribute("id",`divForAllDescription-${i}`);
+        divForAllDescription.className = "div-for-All-Description";
+        
+        //div for description Title
+        const divForDescriptionTitle = document.createElement("div");
+        divForDescriptionTitle.setAttribute("id",`divForDescriptionTitle-${i}`);
+        divForDescriptionTitle.className = "div-for-Description-title-modal";
+        divForDescriptionTitle.innerHTML = "Description";
+        
+        //div for description content
+        const divForDescription = document.createElement("div");
+        divForDescription.setAttribute("id",`divForDescription-${i}`);
+        divForDescription.className = "div-for-Description-modal";
+        divForDescription.innerHTML = `${data[i-1]['description']}`;
+        
+        divForAllDescription.append(divForDescriptionTitle,divForDescription)
+        
+        //div for All stats content
+        const divForAllStats = document.createElement("div");
+        divForAllStats.setAttribute("id",`divForAllStats-${i}`);
+        divForAllStats.className = "div-for-All-Stats"; //class
+        divForAllStats.innerHTML = "";
 
-    //div for total-line
-    let array = [data[i].base.HP, data[i].base.Attack, data[i].base.Defense, data[i].base["Sp. Attack"], data[i].base["Sp. Defense"], data[i].base.Speed]
-    const divForStatsTotal = document.createElement("div");
-    divForStatsTotal.setAttribute("id",`statsTotal-forPokemon${i}`);
-    divForStatsTotal.className = `div-for-stats-total`; //class
-    divForStatsTotal.innerHTML = 'Total:' + array.reduce((accumulator, currentValue) => accumulator + currentValue);
+        //div for stats Title
+        const divForStatsTitle = document.createElement("div");
+        divForStatsTitle.setAttribute("id",`divForStatsTitle-${i}`);
+        divForStatsTitle.className = "div-for-statsTitle-modal"; //class
+        divForStatsTitle.innerHTML = "Stats";
+        
+        //div for stats details//
+        //div fo HP-side
+        const divForStatsHpAttDef = document.createElement("div");
+        divForStatsHpAttDef.setAttribute("id",`statsHpAttDef-forPokemon${i}`);
+        divForStatsHpAttDef.className = `div-for-stats-Hp`; //class
+        divForStatsHpAttDef.innerHTML = 'HP:' +' '+ data[i-1]['base']['HP'] +'<br>'
+        + 'Attack:' +' '+ data[i-1]['base']['Attack'] + '<br>' 
+        + 'Defense:' +' '+ data[i-1]['base']['Defense'];
+        
+        //div for Special-side
+        const divForStatsSpeicalSpeed = document.createElement("div");
+        divForStatsSpeicalSpeed.setAttribute("id",`statsSpeicalSpeed-forPokemon${i}`);
+        divForStatsSpeicalSpeed.className = `div-for-stats-special`; //class
+        divForStatsSpeicalSpeed.innerHTML = 'Sp. Attack:' + ' ' + data[i-1]['base']['Sp. Attack']+'<br>'
+        + 'Sp. Defense:' +'  '+ data[i-1]['base']['Sp. Defense'] + '<br>' 
+        + 'Speed:' +'  '+ data[i-1]['base']['Speed'];
 
-    //add all to the big stats div
-    divForAllStats.append(divForStatsHpAttDef,divForStatsSpeicalSpeed,divForStatsTotal)
-    
-    //create div for *left* details
-    const divForLeft = document.createElement("div");
-    divForLeft.setAttribute("id",`divForLeft-${i}`);
-    divForLeft.className = "div-for-left";
-    divForLeft.append(divForId,divForImg,divForName,divForType);
-    //create div for line border
-    const divForLine = document.createElement("div");
-    divForLine.setAttribute("id",`divForLine-${i}`);
-    divForLine.className = "div-for-line";
-    //create div for *right* details
-    const divForRight = document.createElement("div");
-    divForRight.setAttribute("id",`divForRight-${i}`);
-    divForRight.className = "div-for-right";
-    divForRight.append(divForAllDescription,divForStatsTitle,divForAllStats);
-    //create div for favorite-pic
-    const buttonForHarte = document.createElement("button");
-    buttonForHarte.setAttribute("id",`button-for-harte-${i}` )
-    buttonForHarte.className = "but-for-harte";
-    buttonForHarte.innerHTML = `<img id="img-of-harte" class="img-of-harte" src= "./assets/Vector.png"/> ` ;
+        //div for total-line
+        let array = [data[i-1].base.HP, data[i-1].base.Attack, data[i-1].base.Defense, data[i-1].base["Sp. Attack"], data[i-1].base["Sp. Defense"], data[i-1].base.Speed]
+        const divForStatsTotal = document.createElement("div");
+        divForStatsTotal.setAttribute("id",`statsTotal-forPokemon${i}`);
+        divForStatsTotal.className = `div-for-stats-total`; //class
+        divForStatsTotal.innerHTML = 'Total:' + array.reduce((accumulator, currentValue) => accumulator + currentValue);
 
-    modalContent.append(divForLeft,divForLine,divForRight,buttonForHarte);
-    // append all child to modal
-    modal.appendChild(modalContent);
-    
-    //adding the modal div to original pokemon div
-    BigDivForAllModals.appendChild(modal);    
-    };
+        //add all to the big stats div
+        divForAllStats.append(divForStatsHpAttDef,divForStatsSpeicalSpeed,divForStatsTotal)
+        
+        //create div for *left* details
+        const divForLeft = document.createElement("div");
+        divForLeft.setAttribute("id",`divForLeft-${i}`);
+        divForLeft.className = "div-for-left";
+        divForLeft.append(divForId,divForImg,divForName,divForType);
+        //create div for line border
+        const divForLine = document.createElement("div");
+        divForLine.setAttribute("id",`divForLine-${i}`);
+        divForLine.className = "div-for-line";
+        //create div for *right* details
+        const divForRight = document.createElement("div");
+        divForRight.setAttribute("id",`divForRight-${i}`);
+        divForRight.className = "div-for-right";
+        divForRight.append(divForAllDescription,divForStatsTitle,divForAllStats);
+        //create div for favorite-pic
+        const buttonForHeart = document.createElement("img");
+        buttonForHeart.setAttribute("id",`button-for-heart` )
+        buttonForHeart.src = "./assets/Vector.png"
+        buttonForHeart.className = "but-for-heart"
+
+        // const imgFavorite = document.getElementById(`button-for-heart`);
+        // console.log(imgFavorite);
+        buttonForHeart.addEventListener("click", favorite);
+
+        function favorite() {
+            console.log("hi");
+
+            //change the img
+            if(buttonForHeart.getAttribute("src") == heart_unlike_button ) {
+                console.log("test1");
+                buttonForHeart.src = heart_like_button
+            }
+            else if (buttonForHeart.getAttribute("src") == heart_like_button) {
+                buttonForHeart.src = heart_unlike_button 
+            };
+
+            //add to local storage
+            favoriteList.push(data.indexOf(data[i-1]))
+            // JSON.parse(localStorage.getItem("favoriteList"))
+            localStorage.setItem("favoriteList",favoriteList)
+
+        }
+
+        modalContent.append(divForLeft,divForLine,divForRight,buttonForHeart);
+        // append all child to modal
+        modal.append(modalContent);
+        
+        //adding the modal div to original pokemon div
+        BigDivForAllModals.appendChild(modal);    
+        }
+
+};
+addPokemonModal()
+
 
 
 //add event listener to display the modal
@@ -207,44 +275,5 @@ for (let i=1; i<13;i++) {
         span.addEventListener("click", function() {
             document.getElementById(`myModal-${i}`).style.display = "none";
         });
-};
-
-//add event listener to save the favorite into the local storage
-for (let i=1; i<13;i++) {
-    let lev = document.getElementById(`button-for-harte-${i}`);
-    
-    lev.addEventListener("click", function() {
-        lev.className = "favorite-onClick";
-        localStorage.setItem(`My Favorite-${i}`,`${data[i-1]['name']['english']}`);
-    });
-};
-
-//creating modal for favorites
-// <!-- The Modal -->
-const theMOdal = document.createElement("div");
-theMOdal.setAttribute("id",`theMOdal`);
-theMOdal.className = "div-for-theMOdal";
-console.log(theMOdal);
-
-// <!-- Modal content -->
-const theMOdalContent = document.createElement("div");
-theMOdalContent.setAttribute("id","theMOdalContent");
-theMOdalContent.className = "div-for-theMOdalContent";
-
-
-theMOdal.appendChild(theMOdalContent);
-
-//add event listener to add the items from local storage to favorites modal
-for (let i=1; i<13;i++) {
-    const buttonOfFavorite = document.getElementById("Favorites");
-    const theMOdalContent = document.getElementById("theMOdalContent");
-    buttonOfFavorite.addEventListener ("click", function(){
-
-    localStorage.getItem(`My Favorite-${i}`);
-    const thePokemonCard = document.getElementById(`${i}`);
-    theMOdalContent.innerHTML = thePokemonCard;
-    theMOdal.style.display = "block"
-
-})
 };
 

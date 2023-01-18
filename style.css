@@ -26,6 +26,9 @@
 .child {
     display: flex;
 }
+.favorites{
+
+}
 
 #logo-img{
     margin-left: 110px;
@@ -212,9 +215,9 @@ img{
 
 .all-modal{
     display: flex;
-
 }
-.modal {
+
+.modal{
     display: none; /* Hidden by default */
     position: absolute; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -232,10 +235,12 @@ img{
 }
 .modal-content {
     display: flex;
+    justify-content: space-between;
+    /* justify-content: center; */
     background-color: #F7F7F9;
     Width: 844px;
     height: 342px;
-    margin-left: 60px;
+    margin-left: 255px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-right: 20px;
@@ -266,7 +271,7 @@ img{
     margin-left: 37px;
 }
 
-.but-for-harte{
+.but-for-heart{
     display: flex;
     margin: 0px;
     Width: 20px;
@@ -320,7 +325,7 @@ img{
 
 
 /*class of types*/
-.button-for-Type-Grass{
+.button-for-Type{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -328,206 +333,12 @@ img{
     height: 34px;
     margin-top: 19px;
     margin-bottom: 30px;
-    background: #7AC74C;
+    background: #ffffff;
     border-radius: 9px;
-    border-color: #7AC74C;
+    border-style:none;
     color:  #F7F7F9;
 }
-.button-for-Type-Poison{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #A33EA1;
-    border-radius: 9px;
-    border-color: #A33EA1;
-    color:  #F7F7F9;
-}
-.button-for-Type-Fire{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #EE8130;
-    border-radius: 9px;
-    border-color: #EE8130;
-    color:  #F7F7F9;
-}
-.button-for-Type-Water{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #6390F0;
-    border-radius: 9px;
-    border-color: #6390F0;
-    color:  #F7F7F9;
-}
-.button-for-Type-Electric{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #F7D02C;
-    border-radius: 9px;
-    border-color: #F7D02C;
-    color:  #F7F7F9;
-}
-.button-for-Type-Ice{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #96D9D6;
-    border-radius: 9px;
-    border-color: #96D9D6;
-    color:  #F7F7F9;
-}
-.button-for-Type-Fighting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #C22E28;
-    border-radius: 9px;
-    border-color: #C22E28;
-    color:  #F7F7F9;
-}
-.button-for-Type-Ground{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #E2BF65;
-    border-radius: 9px;
-    border-color: #E2BF65;
-    color:  #F7F7F9;
-}
-.button-for-Type-Flying{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #A98FF3;
-    border-radius: 9px;
-    border-color: #A98FF3;
-    color:  #F7F7F9;
-}
-.button-for-Type-Psychic{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #F95587;
-    border-radius: 9px;
-    border-color: #F95587;
-    color:  #F7F7F9;
-}
-
-.button-for-Type-Bug{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #A6B91A;
-    border-radius: 9px;
-    border-color: #A6B91A;
-    color:  #F7F7F9;
-}
-
-.button-for-Type-rock{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #B6A136;
-    border-radius: 9px;
-    border-color: #B6A136;
-    color:  #F7F7F9;
-}
-.button-for-Type-Ghost{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #735797;
-    border-radius: 9px;
-    border-color: #735797;
-    color:  #F7F7F9;
-}
-.button-for-Type-Dragon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #6F35FC;
-    border-radius: 9px;
-    border-color: #6F35FC;
-    color:  #F7F7F9;
-}
-.button-for-Type-Dark{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #705746;
-    border-radius: 9px;
-    border-color: #705746;
-    color:  #F7F7F9;
-}
-.button-for-Type-Steel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #B7B7CE;
-    border-radius: 9px;
-    border-color: #B7B7CE;
-    color:  #F7F7F9;
-}
-.button-for-Type-Fairy{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 34px;
-    margin-top: 19px;
-    background: #D685AD;
-    border-radius: 9px;
-    border-color: #D685AD;
-    color:  #F7F7F9;
-}
-
+/* 
 /* class for right side of modal */
 .div-for-All-Description{
     display: flex;
@@ -569,12 +380,18 @@ img{
 .close {
     color: #aaaaaa;
     float:inline-end;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
+    height: 40px;
+    padding: 0px;
 }
 .close:hover,
 .close:focus {
     color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.but-for-harte:hover {
     text-decoration: none;
     cursor: pointer;
 }
